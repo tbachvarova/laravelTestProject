@@ -17,5 +17,13 @@ class Listing extends Model
             $query->where('tags', 'like', '%'.request('tag').'%');
         }
 
+        if($filters['search'] ?? false){
+            // where title, description or tags LIKE '%$_GET['search']%'
+            $query->where('title', 'like', '%'.request('search').'%')
+            ->orWhere('description', 'like', '%'.request('search').'%')
+            ->orWhere('tags', 'like', '%'.request('search').'%')
+            ;
+        }
+
     }
 }
