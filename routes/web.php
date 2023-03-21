@@ -16,33 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 // All listings
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => App\Models\Listing::all()
-    ]);
-});
+Route::get('/', [\App\Http\Controllers\ListingController::class, 'index']);
 
 // single listing
-Route::get('/listings/{listing}', function (Listing $listing){
-    return view('listing', [
-        'listing' => $listing
-    ]);
+Route::get('/listings/{listing}', [\App\Http\Controllers\ListingController::class, 'show']);
 
-    /* Gornoto pravi sashtoto, no e vgradeno kato funkcionalnost
-    $listing = \App\Models\Listing::find($id);
 
-    if($listing){
-        return view('listing', [
-            'listing' => $listing
-        ]);
-    }
-    else{
-        abort('404');
-    }
-    */
+// Common Resource Routes:
+// index - Show all listings
+// show - Show single listing
+// create - Show form to create new listing
+// store - Store new listing
+// edit - Show form to edit listing
+// update - Update listing
+// destroy - Delete listing
 
-});
 
 /*
 Route::get('/hello', function () {
