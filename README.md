@@ -2,7 +2,7 @@
 
 
 # laravelTestProject
-This is a Laravel learning test  project
+This is a Laravel learning test  project following the "Laravel From Scratch 2022" course by LaraGigs.
 
 
 ## License
