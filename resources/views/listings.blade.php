@@ -1,3 +1,6 @@
+@extends('layout')
+
+@section('content')
 <h1>{{$heading}}</h1>
 
 @php
@@ -26,3 +29,4 @@
     <p>NO listings with unles</p>
 @endunless
 --}}
+@endsection
