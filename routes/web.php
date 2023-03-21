@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,10 +24,24 @@ Route::get('/', function () {
 });
 
 // single listing
-Route::get('/listings/{id}', function ($id){
+Route::get('/listings/{listing}', function (Listing $listing){
     return view('listing', [
-        'listing' => \App\Models\Listing::find($id)
+        'listing' => $listing
     ]);
+
+    /* Gornoto pravi sashtoto, no e vgradeno kato funkcionalnost
+    $listing = \App\Models\Listing::find($id);
+
+    if($listing){
+        return view('listing', [
+            'listing' => $listing
+        ]);
+    }
+    else{
+        abort('404');
+    }
+    */
+
 });
 
 /*
