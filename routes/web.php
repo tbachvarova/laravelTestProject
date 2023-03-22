@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,13 +27,18 @@ use Illuminate\Support\Facades\Route;
 
 
 // All listings
-Route::get('/', [\App\Http\Controllers\ListingController::class, 'index']);
+Route::get('/', [ListingController::class, 'index']);
+
+// VAJEN e ordera na Route-vete, kato pri .htaccess-a
+//zashtoto inache prihvasha  '/listings/{listing}'
+//show CREATE form
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+//Store POST data from form
+Route::post('/listings', [ListingController::class, 'store']);
 
 // single listing
-Route::get('/listings/{listing}', [\App\Http\Controllers\ListingController::class, 'show']);
-
-
-
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 
 /*

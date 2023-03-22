@@ -9,6 +9,9 @@ class Listing extends Model
 {
     use HasFactory;
 
+    // adnali sme Model::unguard(); v app/Providers/AppServiceProvider.php, zatova ne ni trqbva
+   // protected $fillable  = ['title', 'tags', 'company', 'location', 'email', 'website', 'description'];
+
     public function scopeFilter($query, array $filters)
     {
         //dd($filters['tag']);

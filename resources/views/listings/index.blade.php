@@ -1,7 +1,4 @@
-@extends('layout')
-
-@section('content')
-
+<x-layout>
     @include('partials._hero')
     @include('partials._search')
 
@@ -9,24 +6,11 @@
 
         @unless(count($listings) == 0 )
             @foreach($listings as $listing)
-            <x-listing-card :listing="$listing"/>
+                <x-listing-card :listing="$listing"/>
             @endforeach
         @else
             <p>NO listings with unles</p>
         @endunless
 
-        {{--
-
-        @if( count($listings) == 0 )
-            <p>No listings</p>
-        @endif
-
-        @foreach($listings as $listing)
-            <h2><a href="/listings/{{$listing['id']}}">{{$listing['title']}}</a> </h2>
-            <p>{{$listing['description']}}</p>
-
-        @endforeach
-
-        --}}
     </div>
-@endsection
+</x-layout>
