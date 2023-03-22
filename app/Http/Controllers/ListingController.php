@@ -38,7 +38,7 @@ class ListingController extends Controller
 
     //Store Listing Data from POST form
     public function store(Request $request){
-        //dd($request->all());
+       // dd($request->all());
         $formFields = $request->validate([
             'title'=> 'required',
             // to be UNIQIE in DB => Rule::unique(db.table, table.field)
@@ -49,6 +49,12 @@ class ListingController extends Controller
             'tags' => 'required',
             'description' => 'required'
         ]);
+
+        // dali imame postnat file ot pole LOGO
+        if($request->hasFile('logo')){
+                                                                    // v podpapka "logos"
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
 
         Listing::create($formFields);
 
