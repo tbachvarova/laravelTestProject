@@ -19,7 +19,7 @@ class ListingController extends Controller
             // taka se listvat all
             //'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
             // add pagination
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(2)
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(4)
         ]);
     }
 
@@ -59,6 +59,37 @@ class ListingController extends Controller
         Listing::create($formFields);
 
         return redirect('/')->with('message', 'Listing created successfully!');
+    }
+
+    /** SHOW Edit FORM */
+    public function edit(Listing $listing)
+    {
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+
+    public function update(Request $request, Listing $listing){
+        // dd($request->all());
+        $formFields = $request->validate([
+            'title'=> 'required',
+            // to be UNIQIE in DB => Rule::unique(db.table, table.field)
+            'company'=> ['required'],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required'
+        ]);
+
+        // dali imame postnat file ot pole LOGO
+        if($request->hasFile('logo')){
+            // v podpapka "logos"
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        $listing->update($formFields);
+
+        return back()->with('message', 'Listing updated successfully!');
     }
 
 

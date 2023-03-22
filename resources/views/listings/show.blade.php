@@ -24,6 +24,8 @@
                 </div>
             </div>
         </x-card>
-        >
+        <x-card>
+            <a href="/listings/{{$listing->id}}/edit"> EDIT </a>
+        </x-card>
     </div>
 </x-layout>
