@@ -1,7 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="250" alt="Laravel Logo"></a></p>
 
-
-# laravel Test Project
+# Laravel Test Project
 This is a Laravel learning test  project following the "Laravel From Scratch 2022" course by LaraGigs.
 
 ## What I've learned from this project:
@@ -26,7 +25,7 @@ This is a Laravel learning test  project following the "Laravel From Scratch 202
 - Adding the Theme HTML 
   - Partials
   - Blade  Components and their Attributes
-- Controllers ()
+- Controllers
 - Layout Component (using Layout as a Component instead of "extend & sections")
 - Filter data ( by Model -> filter ( request( ['data'] ) ))
 - Clockwork Package (very useful) - add to Chrome and `$ composer require itsgoingd/clockwork`
@@ -35,8 +34,12 @@ This is a Laravel learning test  project following the "Laravel From Scratch 202
   - Flash Messages (+ Alpine.js For Message Removal)
   - Keep Old Data In Form by `{{old('fieldName')}}`
   - File Upload
-  - Edit and  Delete Stored object
+  - Edit and Delete Stored object (`@method('PUT'), @method('DELETE')`)
 - Pagination (`-> paginate(number)`)
+- User Registration 
+  - password validation & hashing
+  - Logged IN/OUT form + validation
+- Auth & Guest Middleware
 
 
 

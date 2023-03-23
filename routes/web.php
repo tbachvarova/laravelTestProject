@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\UserController;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ Route::get('/', [ListingController::class, 'index']);
 
 // VAJEN e ordera na Route-vete, kato pri .htaccess-a
 //zashtoto inache prihvasha  '/listings/{listing}'
+
 //show CREATE form
 Route::get('/listings/create', [ListingController::class, 'create']);
 
@@ -48,6 +50,18 @@ Route::delete('/listings/{listing}', [ListingController::class, 'delete']);
 // single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
+
+// Show Registration Form
+Route::get('/register', [UserController::class, 'register']);
+Route::post('/users', [UserController::class, 'create']);
+
+// logout USER
+Route::post('/logout', [UserController::class, 'logout']);
+
+// show login form
+Route::get('/login', [UserController::class, 'login']);
+// Loged IN user
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 /*
 Route::get('/hello', function () {
