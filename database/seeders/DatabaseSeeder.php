@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
 
         // create a single User with spec fields
          $user = User::factory()->create([
-             'name' => 'Tedy Test',
-             'email' => 'teodora.sivkova@gmail.com'
+             'name' => 'Test Testov',
+             'email' => 'test@test.com'
          ]);
 
          // Generate randomly

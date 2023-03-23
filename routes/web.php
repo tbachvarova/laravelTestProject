@@ -39,11 +39,15 @@ Route::get('/listings/create', [ListingController::class, 'create'])->middleware
 //Store POST data from form
 Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
 
+// Manage ListingsPosts
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+
 //show EDIT form
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 
 // UPDATE job post
 Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
+
 // DELETE job post
 Route::delete('/listings/{listing}', [ListingController::class, 'delete'])->middleware('auth');
 

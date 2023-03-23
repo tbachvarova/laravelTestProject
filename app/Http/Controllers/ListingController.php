@@ -50,6 +50,9 @@ class ListingController extends Controller
             'description' => 'required'
         ]);
 
+        // Add Logged User id to the post
+        $formFields['user_id'] = auth()->id();
+
         // dali imame postnat file ot pole LOGO
         if($request->hasFile('logo')){
                                                                     // v podpapka "logos"
@@ -58,7 +61,7 @@ class ListingController extends Controller
 
         Listing::create($formFields);
 
-        return redirect('/')->with('message', 'Listing created successfully!');
+        return redirect('/listings/manage')->with('message', 'Listing created successfully!');
     }
 
     /** SHOW Edit FORM */
@@ -68,8 +71,15 @@ class ListingController extends Controller
     }
 
 
+    /** Update Listing Data   */
     public function update(Request $request, Listing $listing){
         // dd($request->all());
+
+        // Make sure logged in user is owner
+        if($listing->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $formFields = $request->validate([
             'title'=> 'required',
             // to be UNIQIE in DB => Rule::unique(db.table, table.field)
@@ -95,8 +105,19 @@ class ListingController extends Controller
     // Delete listing
     public function delete(Listing $listing)
     {
+        if($listing->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $listing->delete();
-        return redirect('/')->with('message', 'Listing Deleted successfully!');
+        return redirect('/listings/manage')->with('message', 'Listing Deleted successfully!');
+    }
+
+
+    public function manage()
+    {
+        // generate Manage Posts i podavame user-a za filter
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
 
 

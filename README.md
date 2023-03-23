@@ -46,10 +46,11 @@ This is a Laravel learning test  project following the "Laravel From Scratch 202
 - Create Relationships between Users & job Posts
   - adding DB FK with cascade deletion of posts (this is not a good idea to apply in all cases in my opinion ... )
   - creating relarion in Model/ 1 <->* for User, and Posts *<->1
+- Tinker Tinkering - that exist and what do :)
+- How to add USER Ownership to job posts (Listings)
+-  Manage Listings Page validate by User Authorization
 
-
-
-> still in progress ...
+> Finished ! :)
 
 ## License
 
