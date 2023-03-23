@@ -51,7 +51,8 @@ This is a Laravel learning test  project following the "Laravel From Scratch 202
 -  Manage Listings Page validate by User Authorization
 
 > Finished ! :)
-> Thanks to @bradtraversy
+> 
+> Thanks to [@bradtraversy](https://github.com/bradtraversy)
 
 ## License
 
