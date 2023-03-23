@@ -17,8 +17,10 @@ This is a Laravel learning test  project following the "Laravel From Scratch 202
   - Basic Directives
 - Database Setup & Config 
   - Creating Database Migrations
-  - Running Migrations
-  - Database Seeding
+  - Running Migrations ``database/migrations``
+  - Database Seeding `database/seeders/DatabaseSeeder.php`
+    - all randomly
+    - and with some custom fields     
 - Create an Eloquent Model
 - Creating a Factory
 - Creating a Layout & Sections
@@ -41,6 +43,9 @@ This is a Laravel learning test  project following the "Laravel From Scratch 202
   - Logged IN/OUT form + validation
 - Auth & Guest Middleware (conf Middleware for "auth" pages)
 - Conf const homePage in RouteServiceProvider.php 
+- Create Relationships between Users & job Posts
+  - adding DB FK with cascade deletion of posts (this is not a good idea to apply in all cases in my opinion ... )
+  - creating relarion in Model/ 1 <->* for User, and Posts *<->1
 
 
 
