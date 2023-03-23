@@ -39,7 +39,8 @@ This is a Laravel learning test  project following the "Laravel From Scratch 202
 - User Registration 
   - password validation & hashing
   - Logged IN/OUT form + validation
-- Auth & Guest Middleware
+- Auth & Guest Middleware (conf Middleware for "auth" pages)
+- Conf const homePage in RouteServiceProvider.php 
 
 
 
